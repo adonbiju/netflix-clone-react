@@ -16,7 +16,7 @@ function Banner() {
   
   return (
     <div className='banner'
-    style={{backgroundImage:`url(${movie? imageUrl+movie.backdrop_path:""})`}}>
+    style={{backgroundImage:`linear-gradient(transparent, transparent, transparent, #111),url(${movie? imageUrl+movie.backdrop_path:""})`}}>
         <div className='content'>
             <h1 className='title'>{movie? movie.title:""}</h1>
             <div className="banner_buttons">
@@ -27,6 +27,7 @@ function Banner() {
         </div>
         <div className="fade-bottom"></div>
     </div>
+    
   )
 }
 
