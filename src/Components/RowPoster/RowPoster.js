@@ -22,7 +22,7 @@ function RowPoster(props) {
             <div className='posters'>
               {
                 movie.map((obj)=>
-                <img  className={props.isSmall?'smallposter':'poster'} alt='poster' src={`${imageUrl+obj.backdrop_path}`} />
+                <img  key={obj.id} className={props.isSmall?'smallposter':'poster'} alt='poster' src={`${imageUrl+obj.backdrop_path}`} />
                 )
                 
               }                    
