@@ -1,7 +1,36 @@
-import React from 'react'
+import React,{useState} from 'react'
 import './Signup.css'
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
+import  {auth}  from '../../Firebase/config';
+import { createUserWithEmailAndPassword ,updateProfile} from "firebase/auth";
+import { doc,setDoc} from "firebase/firestore"; 
+import db from '../../Firebase/config'
+
 function Signup() {
+
+  const [username,setusername]=useState('')
+  const [email,setemail]=useState('')
+  const [password,setpassword]=useState('')
+  
+  const navigate = useNavigate();
+  
+  const handlesubmit=(e)=>{
+    e.preventDefault()
+    createUserWithEmailAndPassword(auth,email,password).then((authUser)=>{
+     
+      updateProfile(auth.currentUser, {displayName:username}).then(()=>{
+        setDoc(doc(db, "users", username), {
+          id:authUser.user.uid,
+          username:username,
+        })
+      
+      }).then(()=>{
+         navigate('/')
+      })
+    }).catch((error)=>{
+      alert(error.message);
+    })
+  }
   return (
     <div className="signUp">
     <Link to="/">
@@ -9,27 +38,27 @@ function Signup() {
     </Link>
     <div className="signup__container">
       <h1>Sign Up</h1>
-      <form >
+      <form onSubmit={handlesubmit}>
+        <input
+          required
+          type="text"
+           value={username}
+            onChange={(e)=>setusername(e.target.value)}
+          placeholder="Username"
+        />
         <input
           required
           type="email"
-      
-
-          placeholder="Email"
+          value={email}
+          onChange={(e)=>setemail(e.target.value)}
+          placeholder="Email Id"
         />
         <input
           required
           type="password"
-         
-          
+          value={password}
+          onChange={(e)=>setpassword(e.target.value)}
           placeholder="Password"
-        />
-        <input
-          required
-          type="password"
-         
-       
-          placeholder="Confirm Password"
         />
         <button type="submit">Sign Up</button>
       </form>

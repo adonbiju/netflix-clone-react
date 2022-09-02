@@ -4,6 +4,8 @@ import Footer from '../Components/Footer/Footer'
 
 
 function StartingPage() {
+
+
   return (
    <Fragment>
        <StartingPageContent></StartingPageContent>

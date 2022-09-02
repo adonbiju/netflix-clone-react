@@ -1,10 +1,25 @@
 import React ,{useState} from 'react'
-import { Link } from "react-router-dom";
+import { Link ,useNavigate } from "react-router-dom";
 import './Signin.css'
-function Signin() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+import { auth } from '../../Firebase/config';
+import { signInWithEmailAndPassword } from "firebase/auth";
 
+
+function Signin() {
+
+  const [email, setemail] = useState("");
+  const [password, setpassword] = useState("");
+
+  const navigate = useNavigate();
+  
+  const handlesubmit=(e)=>{
+    e.preventDefault()
+    signInWithEmailAndPassword (auth,email,password).then((authUser)=>{
+        navigate('/')
+    }).catch((error)=>{
+      alert(error.message);
+    })
+  }
   return (
     <div className="signIn">
     <Link to="/">
@@ -12,19 +27,19 @@ function Signin() {
     </Link>
     <div className="signin__container">
       <h1>Sign In</h1>
-      <form >
+      <form onSubmit={handlesubmit} >
         <input
           value={email}
           required
           type="email"
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={(e) => setemail(e.target.value)}
           placeholder="Email"
         />
         <input
           value={password}
           required
           type="password"
-          onChange={(e) => setPassword(e.target.value)}
+          onChange={(e) => setpassword(e.target.value)}
           placeholder="Password"
         />
         <button type="submit">Sign In</button>
