@@ -9,9 +9,8 @@ function Banner() {
    axios.get(`trending/all/week?api_key=${API_KEY}&language=en-US`).then((Response)=>{
      //console.log(Response.data.results[0])
      setMovie(Response.data.results[Math.floor(Math.random() * 20) + 1])
-     console.log(movie)
    }).catch(function (error) {
-    console.log(error);
+    alert(error)
   })
   }, [])
   
