@@ -9,24 +9,39 @@ function Banner() {
    axios.get(`trending/all/week?api_key=${API_KEY}&language=en-US`).then((Response)=>{
      //console.log(Response.data.results[0])
      setMovie(Response.data.results[Math.floor(Math.random() * 20) + 1])
+     console.log(movie)
    }).catch(function (error) {
     console.log(error);
   })
   }, [])
   
   return (
-    <div className='banner'
-    style={{backgroundImage:`linear-gradient(transparent, transparent, transparent, #111),url(${movie? imageUrl+movie.backdrop_path:""})`}}>
-        <div className='content'>
-            <h1 className='title'>{movie? movie.title:""}</h1>
-            <div className="banner_buttons">
-                <button className='button'>Play</button>
-                <button className='button'>My list</button>
+
+<section 
+    className="featured" 
+    style={{
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundImage: `linear-gradient(transparent, transparent, transparent, #111),url(${movie? imageUrl+movie.backdrop_path:""})`
+    }}
+>
+    <div className="featured--vertical">
+        <div className="featured--horizontal">
+            <div className="featured--name">{movie? movie.title:""}</div>
+            
+            <div className="featured--info">
+                <div className="featured--points">{movie? movie.vote_average:""}/10</div>
+                <div className="featured--year">{movie? movie.release_date:""}</div>
             </div>
-            <h1 className='description'>{movie?movie.overview:""} </h1>
+
+            <div className="featured--description">{movie?movie.overview:""}</div>
+            <div className="featured--buttons">
+                <a disabled className="featured--watchbutton">Play</a>
+                <a disabled className="featured--mylistbutton">My List</a>
+            </div>
         </div>
-        <div className="fade-bottom"></div>
     </div>
+</section>
     
   )
 }

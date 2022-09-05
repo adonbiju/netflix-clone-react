@@ -4,7 +4,7 @@ import { AuthContext } from '../../Store/FirebaseContext'
 import {  signOut } from "firebase/auth";
 import {auth} from '../../Firebase/config'
 
-function Navbar() {
+function Navbar( { black } ) {
   const  {user} = useContext(AuthContext)
   const handleClick=()=>{
     signOut(auth).then(() => {
@@ -15,8 +15,9 @@ function Navbar() {
       alert(error)
     });
   }
+  console.log(black)
   return (
-    <header className="black">
+    <header className={black ? 'black' : ''}>
     <div className="header--logo">
       <a href="/">
         <img alt="Netflix" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/1280px-Netflix_2015_logo.svg.png" />
@@ -34,8 +35,11 @@ function Navbar() {
         <img alt="Usuário" src="https://i.pinimg.com/originals/0d/dc/ca/0ddccae723d85a703b798a5e682c23c1.png"/>
       </a>
     </div>
-
 </header>
+
+
+
+
   )
 }
 

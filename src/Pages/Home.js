@@ -1,13 +1,32 @@
-import React, { Fragment } from 'react'
+import React, { Fragment ,useState,useEffect} from 'react'
 import Banner from '../Components/Banner/Banner';
 import RowPoster from '../Components/RowPoster/RowPoster'
 import {originals,action,Comedy,horror,romance,trendingMovie,popularMovies} from '../urls'
 import Navbar from '../Components/Navbar/Navbar';
 import Footer from '../Components/Footer/Footer';
 function Home() {
+  const [blackHeader, setBlackHeader] = useState(false);
+  useEffect(() => {
+    const scrollListener = () => {
+      if(window.scrollY > 10) {
+        setBlackHeader(true);
+      }
+      else {
+        setBlackHeader(false);
+      }
+    }
+
+    window.addEventListener('scroll', scrollListener);
+
+    return () => {
+      window.removeEventListener('scroll', scrollListener);
+    }
+
+  }, []);
+
   return (
     <Fragment>
-      <Navbar/>
+      <Navbar  black={blackHeader}/>
         <Banner/>
      <RowPoster url={originals} title="Netflix Orginals"/>
      <RowPoster url={trendingMovie} title="Trending Movie" isSmall/>

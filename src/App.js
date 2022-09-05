@@ -5,7 +5,7 @@ import SignupPage from "./Pages/SignupPage";
 import StartingPage from "./Pages/StartingPage";
 import "./App.css";
 
-import { useContext, useEffect } from 'react';
+import { useContext, useEffect} from 'react';
 
 import { AuthContext } from './Store/FirebaseContext';
 
@@ -15,7 +15,6 @@ import {auth} from './Firebase/config'
 function App() {
  
  const  {user,setUser} = useContext(AuthContext)
-
 useEffect(() => {
   onAuthStateChanged(auth, (user) => {
     if (user) {
@@ -31,7 +30,7 @@ useEffect(() => {
 
     <BrowserRouter>
     <Routes>
-        <Route path="/" element={!user? <Navigate to="/Starting"  /> :<Home />} />
+        <Route path="/" element={!user? <Navigate to="/Starting"  /> :<Home/>} />
         <Route path="/Signin" element={<SigninPage />} />
         <Route path="/Signup"  element={<SignupPage/>}  />
         <Route path="/Starting" element={<StartingPage />} />
