@@ -1,9 +1,10 @@
 import React ,{useState} from 'react'
 import { Link ,useNavigate } from "react-router-dom";
 import './Signin.css'
-import { auth } from '../../Firebase/config';
-import { signInWithEmailAndPassword } from "firebase/auth";
-
+import { auth,provider } from '../../Firebase/config';
+import { signInWithEmailAndPassword ,signInWithPopup} from "firebase/auth";
+import { doc,setDoc} from "firebase/firestore"; 
+import db from '../../Firebase/config'
 
 function Signin() {
 
@@ -19,6 +20,23 @@ function Signin() {
     }).catch((error)=>{
       alert(error.message);
     })
+  }
+  const loginwithgoogle=()=>{
+    signInWithPopup(auth, provider)
+  .then((result) => {
+    
+    // The signed-in user info.
+    const user = result.user;
+    setDoc(doc(db, "users", user.displayName), {
+      id:user.uid,
+      username:user.displayName,
+    }).then(()=>{
+      navigate('/')
+    })
+  }).catch((error) => {
+    alert(error)
+    // ...
+  });
   }
   return (
     <div className="signIn">
@@ -44,7 +62,7 @@ function Signin() {
         />
         <button type="submit">Sign In</button>
       </form>
-      <h3 className="signin__google" >
+      <h3 className="signin__google"  onClick={loginwithgoogle}>
         Login with&nbsp;
         <img
           src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"

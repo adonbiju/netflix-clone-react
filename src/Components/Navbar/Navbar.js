@@ -3,12 +3,13 @@ import "./Navbar.css"
 import { AuthContext } from '../../Store/FirebaseContext'
 import {  signOut } from "firebase/auth";
 import {auth} from '../../Firebase/config'
+
 function Navbar() {
   const  {user} = useContext(AuthContext)
   const handleClick=()=>{
     signOut(auth).then(() => {
       // Sign-out successful.
-      alert("Sign-out successfu")
+      alert("Sign-out successful")
     }).catch((error) => {
       // An error happened.
       alert(error)
@@ -33,6 +34,7 @@ function Navbar() {
         <img alt="Usuário" src="https://i.pinimg.com/originals/0d/dc/ca/0ddccae723d85a703b798a5e682c23c1.png"/>
       </a>
     </div>
+
 </header>
   )
 }
