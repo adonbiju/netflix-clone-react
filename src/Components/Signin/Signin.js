@@ -5,9 +5,10 @@ import { auth,provider } from '../../Firebase/config';
 import { signInWithEmailAndPassword ,signInWithPopup} from "firebase/auth";
 import { doc,setDoc} from "firebase/firestore"; 
 import db from '../../Firebase/config'
+import Loading  from '../Loading/Loading'
 
 function Signin() {
-
+  const [loading, setLoading] = useState(false);
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
 
@@ -15,13 +16,18 @@ function Signin() {
   
   const handlesubmit=(e)=>{
     e.preventDefault()
+    setLoading(true)
     signInWithEmailAndPassword (auth,email,password).then((authUser)=>{
-        navigate('/')
+      setLoading(false)
+      navigate('/')
+       
     }).catch((error)=>{
+      setLoading(false)
       alert(error.message);
     })
   }
   const loginwithgoogle=()=>{
+    setLoading(true)
     signInWithPopup(auth, provider)
   .then((result) => {
     
@@ -31,13 +37,22 @@ function Signin() {
       id:user.uid,
       username:user.displayName,
     }).then(()=>{
+      setLoading(false)
       navigate('/')
     })
   }).catch((error) => {
+    setLoading(false)
     alert(error)
     // ...
   });
   }
+
+    //Loader
+    if (loading) {
+      return (
+        <Loading/>
+      );
+    } else {
   return (
     <div className="signIn">
     <Link to="/">
@@ -79,6 +94,7 @@ function Signin() {
     </div>
   </div>
   )
+    }
 }
 
 export default Signin

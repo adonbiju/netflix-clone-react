@@ -5,9 +5,10 @@ import  {auth}  from '../../Firebase/config';
 import { createUserWithEmailAndPassword ,updateProfile} from "firebase/auth";
 import { doc,setDoc} from "firebase/firestore"; 
 import db from '../../Firebase/config'
+import Loading  from '../Loading/Loading'
 
 function Signup() {
-
+  const [loading, setLoading] = useState(false);
   const [username,setusername]=useState('')
   const [email,setemail]=useState('')
   const [password,setpassword]=useState('')
@@ -16,6 +17,7 @@ function Signup() {
   
   const handlesubmit=(e)=>{
     e.preventDefault()
+    setLoading(true)
     createUserWithEmailAndPassword(auth,email,password).then((authUser)=>{
      
       updateProfile(auth.currentUser, {displayName:username}).then(()=>{
@@ -25,12 +27,21 @@ function Signup() {
         })
       
       }).then(()=>{
+        setLoading(false)
          navigate('/')
       })
     }).catch((error)=>{
+      setLoading(false)
       alert(error.message);
     })
   }
+
+  //Loader
+  if (loading) {
+      return (
+        <Loading/>
+      );
+    } else {
   return (
     <div className="signUp">
     <Link to="/">
@@ -69,6 +80,7 @@ function Signup() {
     </div>
   </div>
   )
+}
 }
 
 export default Signup

@@ -5,6 +5,7 @@ import SignupPage from "./Pages/SignupPage";
 import StartingPage from "./Pages/StartingPage";
 import "./App.css";
 
+
 import { useContext, useEffect} from 'react';
 
 import { AuthContext } from './Store/FirebaseContext';
@@ -13,8 +14,8 @@ import { onAuthStateChanged } from "firebase/auth";
 import {auth} from './Firebase/config'
 
 function App() {
- 
- const  {user,setUser} = useContext(AuthContext)
+
+const  {user,setUser} = useContext(AuthContext)
 useEffect(() => {
   onAuthStateChanged(auth, (user) => {
     if (user) {
@@ -25,6 +26,7 @@ useEffect(() => {
   
   })
 },[])
+
 
   return (
 
