@@ -3,6 +3,7 @@ import Home from "./Pages/Home";
 import SigninPage from "./Pages/SigninPage";
 import SignupPage from "./Pages/SignupPage";
 import StartingPage from "./Pages/StartingPage";
+import PageNotFound404 from "./Components/PageNotFound404/PageNotFound404";
 import "./App.css";
 
 
@@ -36,6 +37,7 @@ useEffect(() => {
         <Route path="/Signin" element={<SigninPage />} />
         <Route path="/Signup"  element={<SignupPage/>}  />
         <Route path="/Starting" element={<StartingPage />} />
+        <Route path="*" element={<PageNotFound404/>}/>
     </Routes>
   </BrowserRouter>
  
