@@ -47,6 +47,4 @@ Start the server
   npm  start
 ```
 ## Live
-```bash
   https://netflix-clone-react-adonbiju.vercel.app
-```
