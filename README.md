@@ -1,6 +1,6 @@
 # Netflix Clone
   ![Netflix Clone Logo](/Demo/netflixLogo.png)
-  Netflix Clone is Web application established using React.js and Firebase.
+  
 ## Technologies used :
     * React
     * Firebase
@@ -49,4 +49,4 @@ Start the server
   https://netflix-clone-react-adonbiju.vercel.app
 
 ## Demo Video
-  ![Netflix Clone Demo](/Demo/demo.jif)
+  ![Netflix Clone Demo](/Demo/demo.gif)
