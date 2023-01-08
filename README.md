@@ -50,3 +50,6 @@ Start the server
   https://netflix-clone-react-adonbiju.vercel.app
 
 ## Demo Video
+ <h1 align="center">
+  <img alt="Demo Video" src="/Demo/demo.gif"  />
+</h1>
