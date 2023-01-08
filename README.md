@@ -1,4 +1,10 @@
-
+# Netflix Clone
+## Technologies used :
+    * Hbs(Handlebars)
+    * JavaScript
+    * Node.js
+    * Express.js
+    * MongoDB
 ## Run Locally
 
 Clone the project
