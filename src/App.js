@@ -5,9 +5,9 @@ import SignupPage from "./Pages/SignupPage";
 import StartingPage from "./Pages/StartingPage";
 import PageNotFound404 from "./Components/PageNotFound404/PageNotFound404";
 import "./App.css";
+import Loading from "./Components/Loading/Loading";
 
-
-import { useContext, useEffect} from 'react';
+import { useContext, useEffect,useState} from 'react';
 
 import { AuthContext } from './Store/FirebaseContext';
 
@@ -16,19 +16,29 @@ import {auth} from './Firebase/config'
 
 function App() {
 
+const [loading, setLoading] = useState(false);
+
 const  {user,setUser} = useContext(AuthContext)
 useEffect(() => {
+  setLoading(true)
   onAuthStateChanged(auth, (user) => {
     if (user) {
+      setLoading(false)
       setUser(user)
     } else {
+      setLoading(false)
       setUser(null)
     }
   
   })
 },[])
 
-
+ //Loader
+ if (loading) {
+  return (
+    <Loading/>
+  );
+}else{
   return (
 
     <BrowserRouter>
@@ -42,6 +52,7 @@ useEffect(() => {
   </BrowserRouter>
  
   )
+}
 }
 
 export default App;

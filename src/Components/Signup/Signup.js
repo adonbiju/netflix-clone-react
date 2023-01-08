@@ -45,7 +45,7 @@ function Signup() {
   return (
     <div className="signUp">
     <Link to="/">
-      <img className="logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/1920px-Netflix_2015_logo.svg.png" alt="netflix logo" />
+      <img className="logo" src="/images/netflixLogo.png" />
     </Link>
     <div className="signup__container">
       <h1>Sign Up</h1>

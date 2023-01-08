@@ -34,23 +34,23 @@ function Navbar({ black }) {
       <div className="nav__contents1">
       <a href="/">
         <img
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/1280px-Netflix_2015_logo.svg.png"
+          src="/images/netflixLogo.png"
           alt=""
           className="nav__logo"
         /></a>
         <ul className="nav__contents1-navItems">
           <li style={{ fontWeight: "bolder" }}>Home</li>
-          <li>TV Shows</li>
-          <li>Movies</li>
-          <li>News & Popular</li>
-          <li>My List</li>
+          <li  onClick={handleNotImplementedFunctions}>TV Shows</li>
+          <li  onClick={handleNotImplementedFunctions}>Movies</li>
+          <li  onClick={handleNotImplementedFunctions}>News & Popular</li>
+          <li  onClick={handleNotImplementedFunctions}>My List</li>
         </ul>
       </div>
 
       <div className="nav__contents2">
         <div className="nav__contents2-profile" onClick={handleDropdown}>
           <img
-            src="https://occ-0-3934-3933.1.nflxso.net/dnm/api/v6/0RO1pLmU93-gdXvuxd_iYjzPqkc/AAAABa4D3GTp_NJnmsRwEPccmkPZWlwBTq-sKIpw1gOo1zbhAcixgwzKnVm_87jCYX3hQsrIZesG79mmISXxs_NrXAM.png?r=88c"
+            src="/images/Profiles/Avatar.png"
             alt=""
             className="nav__avatar"
           />
@@ -63,28 +63,28 @@ function Navbar({ black }) {
               <ul className="nav__dropdown-profiles">
                 <li className="nav__dropdown-profile">
                   <img
-                    src="https://occ-0-3934-3933.1.nflxso.net/dnm/api/v6/0RO1pLmU93-gdXvuxd_iYjzPqkc/AAAABeeinKf4qjR-VAaPOviRjcglAoSBnJKs2fY1tfA0nEj-xw-O_KK3gcSUYa2BOh9hE6ThxPEvcS4djBufuLM2ZV0.png?r=535"
+                    src="/images/Profiles/user1.png"
                     alt=""
                   />
                   <p>{user ? `${user.displayName}` : "Login"}</p>
                 </li>
                 <li className="nav__dropdown-profile">
                   <img
-                    src="https://occ-0-3934-3933.1.nflxso.net/dnm/api/v6/0RO1pLmU93-gdXvuxd_iYjzPqkc/AAAABZIK6jqsRHlhlEmDoON8jYhl3g9VML7tmyNKM-HIpNkeAJJRKEyUVCig6fqILzcM_dspEFHOczXgfQgtHCGxiUI.png?r=a29"
+                    src="/images/Profiles/user2.png"
                     alt=""
                   />
                   <p onClick={handleNotImplementedFunctions}>User 2</p>
                 </li>
                 <li className="nav__dropdown-profile">
                   <img
-                    src="https://occ-0-3934-3933.1.nflxso.net/dnm/api/v6/0RO1pLmU93-gdXvuxd_iYjzPqkc/AAAABa4D3GTp_NJnmsRwEPccmkPZWlwBTq-sKIpw1gOo1zbhAcixgwzKnVm_87jCYX3hQsrIZesG79mmISXxs_NrXAM.png?r=88c"
+                     src="/images/Profiles/user3.png"
                     alt=""
                   />
                   <p onClick={handleNotImplementedFunctions}>User 3</p>
                 </li>
                 <li className="nav__dropdown-profile">
                   <img
-                    src="https://occ-0-3934-3933.1.nflxso.net/dnm/api/v6/0RO1pLmU93-gdXvuxd_iYjzPqkc/AAAABeWhh90Jhr88FfkPPsQzlkfArIFv6ztxOLHR3gweFd7iqahxtOH8Cqw7GuSfQJBcxkbMkINDQDx1oFQw3c2gPH0.png?r=cea"
+                     src="/images/Profiles/user4.png"
                     alt=""
                   />
                   <p onClick={handleNotImplementedFunctions}>User 4</p>

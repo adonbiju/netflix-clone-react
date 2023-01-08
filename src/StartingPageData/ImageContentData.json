@@ -1,7 +1,7 @@
 [
     {
       "id": 1,
-      "img": "/images/landingPage-tv.png",
+      "img": "/images/StartingPageImages/landingPage-tv.png",
       "img_position": true,
       "alt": "home-tv",
       "title": "Enjoy on your TV.",
@@ -9,7 +9,7 @@
     },
     {
       "id": 2,
-      "img": "/images/landingPage-mobile.png",
+      "img": "/images/StartingPageImages/landingPage-mobile.png",
       "img_position": false,
       "alt": "home-mobile",
       "title": "Download your shows to watch offline.",
@@ -17,7 +17,7 @@
     },
     {
       "id": 3,
-      "img": "/images/landingPage-imac.jpg",
+      "img": "/images/StartingPageImages/landingPage-imac.jpg",
       "img_position": true,
       "alt": "home-imac",
       "title": "Watch everywhere.",
@@ -25,7 +25,7 @@
     },
     {
       "id": 4,
-      "img": "/images/kids.png",
+      "img": "/images/StartingPageImages/kids.png",
       "img_position": false,
       "alt": "kids",
       "title": "Create profiles for children..",

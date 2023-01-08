@@ -37,7 +37,7 @@ function Banner() {
             <div className="featured--name">{movie? movie.title:""}</div>
             
             <div className="featured--info">
-                <div className="featured--points">{movie? movie.vote_average:""}/10</div>
+                <div className="featured--points">{movie? Math.floor(movie.vote_average):""}/10</div>
                 <div className="featured--year">{movie? movie.release_date:""}</div>
             </div>
 

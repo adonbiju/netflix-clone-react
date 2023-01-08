@@ -24,7 +24,7 @@
         rgba(0, 0, 0, 0.4) 60%,
         rgba(0, 0, 0, 0.85) 100%
       ),
-      url("../../Images/landingPage.jpg");
+      url("/public/images/landingPage.jpg");
     background-position: center;
     background-size: cover;
     text-align: center;

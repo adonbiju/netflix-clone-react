@@ -56,7 +56,7 @@ function Signin() {
   return (
     <div className="signIn">
     <Link to="/">
-      <img className="logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/1920px-Netflix_2015_logo.svg.png" alt="netflix logo" />
+      <img className="logo" src="/images/netflixLogo.png" />
     </Link>
     <div className="signin__container">
       <h1>Sign In</h1>
@@ -80,7 +80,7 @@ function Signin() {
       <h3 className="signin__google"  onClick={loginwithgoogle}>
         Login with&nbsp;
         <img
-          src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
+          src="/images/Google__G__Logo.svg"
           alt="google-logo"
         />
       </h3>

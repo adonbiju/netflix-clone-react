@@ -9,6 +9,7 @@ import './RowPoster.css'
 function RowPoster(props) {
   const [movie, setmovie] = useState([])
   const [youtubeID,setYoutubeID]=useState('')
+  const [hide, setHide] = useState(false);
 
   useEffect(() => {
     axios.get(props.url).then((Response)=>{
@@ -31,13 +32,18 @@ function RowPoster(props) {
 
   const handleMovie=(id)=>{
     //console.log("hiiiii"+id)
+   
     axios.get( `movie/${id}/videos?language=en-US&api_key=${API_KEY}`).then((Response)=>{
-      //console.log(Response.data)
+      //onsole.log(Response.data.results)
       if(Response.data.results.length!==0){
       setYoutubeID(Response.data.results[0])
+      setHide(!hide)
+      }else{
+        alert("No trailer found for this movie!!")
       }
     }).catch(function (error) {
-      console.log(error)
+      // console.log(error)
+      alert(error)
     })
   }
 
@@ -52,7 +58,12 @@ function RowPoster(props) {
                 
               }                    
             </div>
-            {youtubeID && <YouTube videoId ={youtubeID.key} opts={opts}/>}
+            {hide && 
+            <div>
+              {youtubeID && <YouTube videoId ={youtubeID.key} opts={opts}/>}
+            </div>
+            }
+            {/* {youtubeID && <YouTube videoId ={youtubeID.key} opts={opts}/>} */}
 
     
     </div>
