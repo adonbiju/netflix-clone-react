@@ -40,7 +40,7 @@ Create a **.env** file inside project directory with fields given below.
   REACT_APP_MEASURMENTID=
 ```
 
-Start the server
+Start the Project
 
 ```bash
   npm  start
